@@ -1,7 +1,7 @@
-
 import pygame
 import math
 from random import randint, randrange
+
 pygame.init()
 
 # Screen setup
@@ -100,7 +100,6 @@ npc1Dialogue = [
     exist.""",
     """Go down the path infront of me and talk to Rosy Red. She's the one being 
     affected by Waste Mongers actions for years!""",
-
     """Good Luck on your fight!""",
 ]
 
@@ -108,14 +107,10 @@ npcDialogue = [
     """Green Guardian? Is that you? I've been waiting for you, Waste Monger has
     been destroying my beloved town of Fleetwood, just take a look at how my land 
     has decayed due to Waste Mongers actions.""",
-
     """Our town has been tourtured ever since Waste Monger arrived, please stop 
-    him Green Guardian.""", 
-
+    him Green Guardian.""",
     """The people of Fleetwood need you now more than ever""",
-
     """Green Guardian... we believe in you!""",
- 
 ]
 
 # Quiz Questions
@@ -133,31 +128,47 @@ questions = [
 ]
 
 # Answer options
-options = [
-    ["Using resources without causing harm", "Building new roads", "Using fossil fuels", "Overconsumption of water"],
-    ["Solar power", "Coal", "Natural gas", "Nuclear power"],
-    ["Deforestation", "Overfishing", "Pollution", "All of the above"],
-    ["Recycling", "Throwing away more trash", "Burning plastic", "Using more single-use items"],
-    ["Growing more food", "Using pesticides", "Supporting eco-friendly farming", "Cutting down forests"],
-    ["By emitting more greenhouse gases", "By reducing emissions", "By using more plastic", "By burning coal"],
-    ["Building with energy-efficient materials", "Increasing energy consumption", "Using non-renewable resources", "Building with toxic materials"],
-    ["AI robots", "Eco-friendly technologies", "Plastic waste", "Pollution"],
-    ["Conserving water", "Buying more plastic products", "Eating more meat", "Cutting down trees"],
-    ["Because we must protect the environment", "To make more money", "To destroy forests", "Because it's not important"]
-]
+options = [[
+    "Using resources without causing harm", "Building new roads",
+    "Using fossil fuels", "Overconsumption of water"
+], ["Solar power", "Coal", "Natural gas", "Nuclear power"],
+           ["Deforestation", "Overfishing", "Pollution", "All of the above"],
+           [
+               "Recycling", "Throwing away more trash", "Burning plastic",
+               "Using more single-use items"
+           ],
+           [
+               "Growing more food", "Using pesticides",
+               "Supporting eco-friendly farming", "Cutting down forests"
+           ],
+           [
+               "By emitting more greenhouse gases", "By reducing emissions",
+               "By using more plastic", "By burning coal"
+           ],
+           [
+               "Building with energy-efficient materials",
+               "Increasing energy consumption",
+               "Using non-renewable resources", "Building with toxic materials"
+           ],
+           [
+               "AI robots", "Eco-friendly technologies", "Plastic waste",
+               "Pollution"
+           ],
+           [
+               "Conserving water", "Buying more plastic products",
+               "Eating more meat", "Cutting down trees"
+           ],
+           [
+               "Because we must protect the environment", "To make more money",
+               "To destroy forests", "Because it's not important"
+           ]]
 
 # Correct answers (sustainability-focused)
 correctOptions = [
-    "Using resources without causing harm",
-    "Solar power",
-    "All of the above",
-    "Recycling",
-    "Supporting eco-friendly farming",
-    "By reducing emissions",
-    "Building with energy-efficient materials",
-    "Eco-friendly technologies",
-    "Conserving water",
-    "Because we must protect the environment"
+    "Using resources without causing harm", "Solar power", "All of the above",
+    "Recycling", "Supporting eco-friendly farming", "By reducing emissions",
+    "Building with energy-efficient materials", "Eco-friendly technologies",
+    "Conserving water", "Because we must protect the environment"
 ]
 
 
@@ -175,7 +186,11 @@ def get_player_frames(direction):
 
 # Function to render the text box
 def renderTextBox(dialogue):
-    pygame.draw.rect(screen,(0, 0, 0),(0, SCREEN_HEIGHT - TEXT_BOX_HEIGHT, SCREEN_WIDTH, TEXT_BOX_HEIGHT),)
+    pygame.draw.rect(
+        screen,
+        (0, 0, 0),
+        (0, SCREEN_HEIGHT - TEXT_BOX_HEIGHT, SCREEN_WIDTH, TEXT_BOX_HEIGHT),
+    )
     yStartText = SCREEN_HEIGHT - TEXT_BOX_HEIGHT + TEXT_MARGIN
     for line in dialogue.split("\n"):
         text = font.render(line.strip(), True, (255, 255, 255))
@@ -213,9 +228,12 @@ def isNextButtonClicked(mousePos):
             and SCREEN_HEIGHT - BUTTON_HEIGHT - BUTTON_MARGIN <= y <=
             SCREEN_HEIGHT - BUTTON_MARGIN)
 
+
 def isStartButtonClicked(mousePos):
     mousex, mousey = mousePos  # takes the x and y position of mouse position
-    return (mousex > 200 and mousex < SCREEN_WIDTH - 200 and mousey > 275 and mousey < SCREEN_HEIGHT - 275)
+    return (mousex > 200 and mousex < SCREEN_WIDTH - 200 and mousey > 275
+            and mousey < SCREEN_HEIGHT - 275)
+
 
 # Check if the player is near the NPC
 def isPlayerNearNpc(playerPos, npcPos, proximityRange=70):
@@ -223,18 +241,22 @@ def isPlayerNearNpc(playerPos, npcPos, proximityRange=70):
                 (playerPos[1] - npcPos[1])**2)**0.5  # Pythagorean theorem
     return distance <= proximityRange
 
+
 def isPlayerNearOtherNpc(playerPos, npc1pos, proximityRange=70):
-    distance = ((playerPos[0] - npc1pos[0] + 20)**2 +
-                (playerPos[1] - npc1pos[1] + 20)**2)**0.5  # Pythagorean theorem
+    distance = (
+        (playerPos[0] - npc1pos[0] + 20)**2 +
+        (playerPos[1] - npc1pos[1] + 20)**2)**0.5  # Pythagorean theorem
     if gameMode == "topdown":
         return distance <= proximityRange
 
+
 def isPlayerNearNpc2(playerPos, npc2pos, proximityRange=70):
-    distance = ((playerPos[0] - npc2pos[0] + 20)**2 +
-                (playerPos[1] - npc2pos[1] + 20)**2)**0.5  # Pythagorean theorem
+    distance = (
+        (playerPos[0] - npc2pos[0] + 20)**2 +
+        (playerPos[1] - npc2pos[1] + 20)**2)**0.5  # Pythagorean theorem
     if gameMode == "topdown":
         return distance <= proximityRange
-    
+
 
 def whichOptionClicked(mousePos):
     mousex, mousey = mousePos  # takes the x and y position of mouse position
@@ -247,9 +269,11 @@ def whichOptionClicked(mousePos):
     if (mousex > 450 and mousex < 780 and mousey > 400 and mousey < 550):
         return 3
 
+
 def displayQuestionAndOptions(question):
     text = font.render(questions[question], True, (255, 255, 255))
-    screen.blit(text,(20, 120))
+    screen.blit(text, (20, 120))
+
 
 # Initialize game variables
 
@@ -304,7 +328,7 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:
             playerClickedOnScreen = True
             if gameMode == "intro" and isStartButtonClicked(
-                pygame.mouse.get_pos()):
+                    pygame.mouse.get_pos()):
                 gameStart.play()
                 currentBackground = background1
                 gameMode = "topdown"
@@ -418,9 +442,9 @@ while running:
             playerx = 10
             playery = 400
             currentBackground = background2
-            
+
         # player goes to bottom area
-        if playery >= 480 and playerx >= 430 and playerx <=620 :
+        if playery >= 480 and playerx >= 430 and playerx <= 620:
             playerx = 500
             playery = 50
             npcPos = (450, 350)
@@ -460,10 +484,8 @@ while running:
         else:
             playerFrameCounter = 0
 
-
         if playerx <= 0:
             playerx = 0
-
 
         if playerx >= SCREEN_WIDTH - 30:
             playerx = SCREEN_WIDTH - 30
@@ -482,8 +504,6 @@ while running:
             currentBackground = background1
             npcPos = (-500, -500)
 
-
-
     if gameMode == "platformer":
         if playerHealth > 0:
             if keys[pygame.K_LEFT]:
@@ -495,7 +515,8 @@ while running:
                 dx = 4
                 playerMoving = True
 
-            if keys[pygame.K_SPACE] and currentTime - lastShotTime > BULLET_COOLDOWN:
+            if keys[pygame.
+                    K_SPACE] and currentTime - lastShotTime > BULLET_COOLDOWN:
                 Shoot.play()
                 lastShotTime = currentTime
                 # Calculate direction to the villain
@@ -534,7 +555,7 @@ while running:
 
             # Player can't walk off screen
             if playerx > SCREEN_WIDTH:
-                playerx = 0          
+                playerx = 0
             if playerx < 0:
                 playerx = SCREEN_WIDTH
 
@@ -557,7 +578,7 @@ while running:
             else:
                 gameMode = "Won"
                 villainDeathPos = (-100, -100)
-        # Villain movement mechanics    
+        # Villain movement mechanics
         else:
             if villainPos[0] < playerx and playerHealth > 0:
                 villainPos[0] += 2
@@ -577,21 +598,23 @@ while running:
             bulletPositions[i][0] += bulletDistances[i][0]
             bulletPositions[i][1] += bulletDistances[i][1]
 
-            if (bulletPositions[i][0] <= villainPos[0] + 32 and bulletPositions[i][0] >= villainPos[0] - 32):
+            if (bulletPositions[i][0] <= villainPos[0] + 32
+                    and bulletPositions[i][0] >= villainPos[0] - 32):
                 villainHealth -= 10
                 redHealthBox += 2.5
                 damageSound.play()
                 bulletPositions.pop(i)
                 bulletDistances.pop(i)
 
-            elif (bulletPositions[i][0] < 0 or bulletPositions[i][0] > SCREEN_WIDTH
-                    or bulletPositions[i][1] < 0 or bulletPositions[i][1] > 432):
+            elif (bulletPositions[i][0] < 0
+                  or bulletPositions[i][0] > SCREEN_WIDTH
+                  or bulletPositions[i][1] < 0 or bulletPositions[i][1] > 432):
                 bulletPositions.pop(i)
                 bulletDistances.pop(i)
 
-
         # Player hitbox
-        if (playerx <= villainPos[0] + 22 and playerx >= villainPos[0] - 22) and playery >= 336 and villainHealth > 0:
+        if (playerx <= villainPos[0] + 22 and playerx >= villainPos[0] -
+                22) and playery >= 336 and villainHealth > 0:
             playerHealth -= 100
             playerRedHealthBox += 100
             manScream.play()
@@ -606,7 +629,7 @@ while running:
             if villainPos[0] >= SCREEN_WIDTH:
                 gameMode = "Lost"
 
-    # Lost game end screen        
+    # Lost game end screen
     if gameMode == "Lost":
         currentBackground = loseScreen
         if countGameOver == 1:
@@ -614,7 +637,7 @@ while running:
             countGameOver += 1
         screen.blit(currentBackground, (0, 0))
 
-    # Quiz    
+    # Quiz
     if gameMode == "Won":
         playerFrameCounter = 0
         playerDirection = "down"
@@ -633,22 +656,27 @@ while running:
         currentBackground = background3
 
         # Display the question
-        questionText = font.render(questions[testQuestionNumber], True, (255, 255, 255))
-        screen.blit(questionText,(40, 70))
+        questionText = font.render(questions[testQuestionNumber], True,
+                                   (255, 255, 255))
+        screen.blit(questionText, (40, 70))
 
         # Display the options
-        option1Text = font.render(options[testQuestionNumber][0], True, (255, 255, 255))
-        screen.blit(option1Text,(40, 275))
-        option2Text = font.render(options[testQuestionNumber][1], True, (255, 255, 255))
-        screen.blit(option2Text,(470, 275))
-        option3Text = font.render(options[testQuestionNumber][2], True, (255, 255, 255))
-        screen.blit(option3Text,(40, 475))
-        option4Text = font.render(options[testQuestionNumber][3], True, (255, 255, 255))
-        screen.blit(option4Text,(470, 475))
+        option1Text = font.render(options[testQuestionNumber][0], True,
+                                  (255, 255, 255))
+        screen.blit(option1Text, (40, 275))
+        option2Text = font.render(options[testQuestionNumber][1], True,
+                                  (255, 255, 255))
+        screen.blit(option2Text, (470, 275))
+        option3Text = font.render(options[testQuestionNumber][2], True,
+                                  (255, 255, 255))
+        screen.blit(option3Text, (40, 475))
+        option4Text = font.render(options[testQuestionNumber][3], True,
+                                  (255, 255, 255))
+        screen.blit(option4Text, (470, 475))
 
         # Check if selected option is correct
         if buttonClickedYet:
-            selectedAnswer = options[testQuestionNumber][optionClicked]  #error but it works dont change it lol
+            selectedAnswer = options[testQuestionNumber][optionClicked]
             if selectedAnswer == correctOptions[testQuestionNumber]:
                 screen.blit(checkmark, (300, 200))
                 screen.blit(winScreen, (0, 0))
@@ -659,8 +687,7 @@ while running:
                 screen.blit(xmark, (200, 100))
                 gameMode = "Lost"
 
-
-    # ??? forgot what this does lol    
+    # Adjust the background for the ending
     if gameMode == "Ending":
         currentBackground = background4
         screen.blit(currentBackground, (0, 0))
@@ -669,13 +696,15 @@ while running:
     # Draw the player
     playerFrames = get_player_frames(playerDirection)
     playerFrame = playerFrames[playerFrameCounter]
-    if (gameMode == "topdown" or gameMode == "platformer" or gameMode == "Forest") and playerHealth > 0:
+    if (gameMode == "topdown" or gameMode == "platformer"
+            or gameMode == "Forest") and playerHealth > 0:
         screen.blit(playerFrame, (playerx, playery))
     screen.blit(npcImage, npcPos)
     screen.blit(villainFrameDeath, (villainDeathPos))
     if gameMode == "platformer":
-        pygame.draw.rect(screen, (255, 0, 0), (playerx, playery-22, 50, 10))
-        pygame.draw.rect(screen, (0, 255, 0), (playerx, playery-22, 50 - playerRedHealthBox, 10))
+        pygame.draw.rect(screen, (255, 0, 0), (playerx, playery - 22, 50, 10))
+        pygame.draw.rect(screen, (0, 255, 0),
+                         (playerx, playery - 22, 50 - playerRedHealthBox, 10))
 
     # Draw the villain
     if villainHealth > 0:
@@ -686,13 +715,15 @@ while running:
         villainFrame = villainFrames[villainFrameCounter // 3]
         screen.blit(villainFrame, (villainPos[0], villainPos[1]))
 
-        pygame.draw.rect(screen, (255, 0, 0), (villainPos[0], villainPos[1]-22, 50, 10))
-        pygame.draw.rect(screen, (0, 255, 0), (villainPos[0], villainPos[1]-22, 50 - redHealthBox, 10))
+        pygame.draw.rect(screen, (255, 0, 0),
+                         (villainPos[0], villainPos[1] - 22, 50, 10))
+        pygame.draw.rect(
+            screen, (0, 255, 0),
+            (villainPos[0], villainPos[1] - 22, 50 - redHealthBox, 10))
 
     # Draw each bullets
     for bullet in bulletPositions:
         screen.blit(bulletImage, (bullet[0], bullet[1]))
-
 
     # Update display
     if isPlayerNearNpc((playerx, playery), npcPos) and not displayingDialogue:
@@ -706,11 +737,13 @@ while running:
         renderTextBox(npcDialogue[currentDialogueIndex])
         renderNextButton()
 
-    if isPlayerNearOtherNpc((playerx, playery), npc1pos) and not displayingOtherDialogue:
+    if isPlayerNearOtherNpc(
+        (playerx, playery), npc1pos) and not displayingOtherDialogue:
         displayingOtherDialogue = True
         currentDialogueOtherIndex = 0
 
-    if not isPlayerNearOtherNpc((playerx, playery), npc1pos) and displayingOtherDialogue:
+    if not isPlayerNearOtherNpc(
+        (playerx, playery), npc1pos) and displayingOtherDialogue:
 
         displayingOtherDialogue = False
     # If displaing dialogue, render the next button
@@ -718,14 +751,15 @@ while running:
         renderTextBox(npc1Dialogue[currentDialogueOtherIndex])
         renderNextButton()
 
-    if isPlayerNearNpc2((playerx, playery), npc2pos) and not displaying2Dialogue:
+    if isPlayerNearNpc2(
+        (playerx, playery), npc2pos) and not displaying2Dialogue:
         displaying2Dialogue = True
         currentDialogue2Index = 0
 
-    if not isPlayerNearNpc2((playerx, playery), npc2pos) and displaying2Dialogue:
+    if not isPlayerNearNpc2(
+        (playerx, playery), npc2pos) and displaying2Dialogue:
         displaying2Dialogue = False
 
-    
     # If displaing dialogue, render the next button
     if displaying2Dialogue:
         renderTextBox(npc2Dialogue[currentDialogue2Index])
