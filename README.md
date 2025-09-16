@@ -3,11 +3,15 @@ Green Guardian: The Fight for Fleetwood
 A 2D educational adventure game built with Pygame.
 You play as Green Guardian, a hero tasked with saving the town of Fleetwood from Waste Monger while learning about sustainability and the environment along the way.
 
+
+
 Story
 
 Fleetwood is under threat. Waste Monger has been destroying forests, polluting land, and harming the people. As the Green Guardian, you must explore the town, talk to villagers, fight Waste Monger, and prove your knowledge in a sustainability quiz to save the town.
 
 Gameplay
+
+
 
 Intro
 
@@ -29,6 +33,8 @@ Answer sustainability questions correctly to win.
 
 If your health reaches zero or you fail the quiz, you see the losing screen.
 
+
+
 Features
 
 Multiple game states: intro, topdown, Forest, platformer, victory, defeat.
@@ -49,6 +55,8 @@ Sound effects for shooting, taking damage, cheering, and game over.
 
 Background music loop.
 
+
+
 Controls
 
 Arrow Keys – Move your character.
@@ -63,6 +71,8 @@ Click Next button to continue dialogue.
 
 Click an answer option in the quiz.
 
+
+
 Installation
 
 Install Python 3.8+.
@@ -70,7 +80,6 @@ Install Python 3.8+.
 Install Pygame:
 
 pip install pygame
-
 
 Clone or download this repository.
 
@@ -93,6 +102,8 @@ Renewable energy
 Recycling & waste reduction
 
 Green technology
+
+
 
 
 This project earned our group 2nd at Mill Hacks
