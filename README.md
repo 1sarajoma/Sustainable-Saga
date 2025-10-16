@@ -1,109 +1,66 @@
-Green Guardian: The Fight for Fleetwood
+# 🌱 Sustainable Saga
 
-A 2D educational adventure game built with Pygame.
-You play as Green Guardian, a hero tasked with saving the town of Fleetwood from Waste Monger while learning about sustainability and the environment along the way.
+**Sustainable Saga** is a 2D educational adventure game built with **Pygame**.  
+Players take on the role of a hero working to restore balance to the environment while learning about sustainability and eco-friendly practices.
 
+---
 
+## 📖 Story
 
-Story
+The world is facing environmental challenges. As the player, you are tasked with completing quests, solving puzzles, and battling pollution-themed villains to save the environment.  
 
-Fleetwood is under threat. Waste Monger has been destroying forests, polluting land, and harming the people. As the Green Guardian, you must explore the town, talk to villagers, fight Waste Monger, and prove your knowledge in a sustainability quiz to save the town.
+Along the way, you will interact with NPCs, explore forests, towns, and oceans, and answer sustainability-themed quizzes to advance your mission.
 
-Gameplay
+---
 
+## 🎮 Gameplay
 
+### 1. Intro
+- Welcome screen with a **Start** button to begin your adventure.  
 
-Intro
+### 2. Top-Down Exploration
+- Explore towns, forests, and oceans from a top-down perspective.  
+- Interact with NPCs to gather information and complete quests.  
 
-Welcome screen with start button.
+### 3. Platformer Challenges
+- Jump, move left/right, and avoid or defeat enemies.  
+- Collect eco-items that boost your score and health.  
 
-Top-down Exploration
+### 4. Quiz Mode
+- Answer sustainability-themed questions to unlock new levels or special rewards.  
+- Failing a quiz may require repeating a section to reinforce learning.
 
-Walk around Fleetwood, interact with NPCs, and receive guidance.
+---
 
-Explore the forest to talk to NPCs about environmental destruction.
+## ✨ Features
 
-Platformer Battle
+| Feature | Description |
+|---------|-------------|
+| **Multiple Game States** | Intro, Exploration, Platformer, Quiz, Victory, Defeat |
+| **Animated Sprites** | Player movements and villain animations |
+| **NPC Dialogues** | Interactive conversations with **Next** button navigation |
+| **Platformer Mechanics** | Walking, sprinting, jumping, and collecting items |
+| **Villain AI** | Chases the player and deals damage |
+| **Health & Energy Bars** | Track player and villain health/status |
+| **Quiz Mode** | Educational questions on sustainability, renewable energy, recycling, and green tech |
+| **Sound & Music** | Background music loops, sound effects for actions and events |
 
-Jump, move left/right, and shoot bullets.
+---
 
-Quiz Mode (Victory)
+## 🎮 Controls
 
-Answer sustainability questions correctly to win.
+| Input | Action |
+|-------|--------|
+| **Arrow Keys** | Move your character |
+| **Space** | Jump / Shoot bullets (platformer mode) |
+| **Mouse** | Click **Start** to begin, **Next** to continue dialogues, select quiz answers |
 
-If your health reaches zero or you fail the quiz, you see the losing screen.
+---
 
+## ⚙️ Installation
 
-
-Features
-
-Multiple game states: intro, topdown, Forest, platformer, victory, defeat.
-
-Animated sprites for the player (up, down, left, right) and villain (left/right).
-
-NPC dialogues with Next button navigation.
-
-Platformer mechanics: walking, sprinting, jumping, shooting bullets.
-
-Villain AI: chases the player and deals damage on collision.
-
-Health bars for both player and villain.
-
-Quiz mode with 10 sustainability-themed questions.
-
-Sound effects for shooting, taking damage, cheering, and game over.
-
-Background music loop.
-
-
-
-Controls
-
-Arrow Keys – Move your character.
-
-Space – In platformer mode → jump / shoot bullets (with cooldown).
-
-Mouse –
-
-Click Start button to begin.
-
-Click Next button to continue dialogue.
-
-Click an answer option in the quiz.
-
-
-
-Installation
-
-Install Python 3.8+.
-
-Install Pygame:
-
+1. **Install Python 3.8+**  
+2. **Install Pygame:**  
+```bash
 pip install pygame
-
-Clone or download this repository.
-
-Place all the required images and sounds in the same directory as main.py.
-
-Run the game:
-
-python main.py
-
-Educational Purpose
-
-This game is designed not just for fun but also to raise awareness about:
-
-Sustainability
-
-Deforestation
-
-Renewable energy
-
-Recycling & waste reduction
-
-Green technology
-
-
-
-
-This project earned our group 2nd at Mill Hacks
+```
