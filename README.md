@@ -64,3 +64,38 @@ Along the way, you will interact with NPCs, explore forests, towns, and oceans, 
 ```bash
 pip install pygame
 ```
+3. **Clone or download this repository**
+```bash
+git clone https://github.com/yourusername/SustainableSaga.git
+cd SustainableSaga
+```
+
+## 📚 How It Works
+
+1. Start the game from the welcome screen.
+
+2. Explore towns, forests, and oceans to interact with NPCs.
+
+3. Find and take down the boss.
+
+4. Take a final quiz to reinforce your knowledge and complete the game.
+
+---
+## 🌎 Educational Purpose
+
+**Sustainable Saga** is designed to be both fun and educational, teaching players about:  
+- 🌿 Sustainability & environmental protection  
+- ⚡ Renewable energy & green technology  
+- ♻️ Recycling & waste reduction  
+- 🌍 Climate awareness and ecological responsibility  
+
+---
+
+## ✨ Future Improvements
+
+- 🔁 Save player progress and quiz results using JSON or a lightweight database
+
+- 💬 Add AI-driven hints for quizzes or environmental tips
+
+- 📊 Introduce analytics: track time spent in each zone and quiz performance
+
